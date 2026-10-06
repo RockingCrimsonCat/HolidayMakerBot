@@ -3,6 +3,8 @@
     public class Constants
     {
         public static string adress = "https://date.nager.at";
-        public static string Connect = "Host=localhost;Username=postgres;Password=strongpass;Database=Holidays";
+        public static string Connect =
+            Environment.GetEnvironmentVariable("HOLIDAYS_DB_CONNECTION")
+            ?? throw new InvalidOperationException("Set the HOLIDAYS_DB_CONNECTION environment variable");
     }
 }

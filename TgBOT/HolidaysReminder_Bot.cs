@@ -20,7 +20,9 @@ namespace TgBOT
 {
     public class HolidaysReminder_Bot
     {
-        static TelegramBotClient botClient = new TelegramBotClient("7167975722:AAHm2yiZt4vYKkro9VLWyHsU6SCs03ybnrA");
+        static TelegramBotClient botClient = new TelegramBotClient(
+            Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN")
+            ?? throw new InvalidOperationException("Set the TELEGRAM_BOT_TOKEN environment variable"));
 
 
         CancellationToken cancellationToken = new CancellationToken();

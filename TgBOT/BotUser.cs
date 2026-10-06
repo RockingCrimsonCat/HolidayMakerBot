@@ -14,7 +14,9 @@ namespace TgBOT
         public class Constants
         {
             public static string adress = "https://localhost:7079";
-            public static string Connect = "Host=localhost;Username=postgres;Password=strongpass;Database=postgres";
+            public static string Connect =
+                Environment.GetEnvironmentVariable("BOT_DB_CONNECTION")
+                ?? throw new InvalidOperationException("Set the BOT_DB_CONNECTION environment variable");
         }
         public class User
         {
